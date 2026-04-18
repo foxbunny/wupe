@@ -16,6 +16,9 @@ resumed.
 
 ## Installation
 
+Get the wupe.exe binary from the [latest
+release](https://github.com/foxbunny/wupe/releases/latest).
+
 Copy wupe.exe to any location. Run:
 
 ```cmd
