@@ -8,8 +8,46 @@ This is a system service written in Go that extends the Windows update pause per
 
 ## Installation
 
+Copy wupe.exe to any location. Run:
+
+```cmd
+powershell -Command "New-EventLog -LogName Application -Source WUPEService"
+sc create WUPEService binPath="C:\Path\To\wupe.exe"
+sc description WUPEService "Extend Windows Update Pause indefinitely"
+```
 
 ## Usage
 
+To start:
+
+```cmd
+sc start WUPEService
+```
+
+To stop:
+
+```cmd
+sc stop WUPEService
+```
+
+To query state:
+
+```cmd
+sc query WIPEService
+```
+
+## Uninstallation
+
+To uninstall:
+
+```cmd
+sc delete WUPEServices
+powershell -Command "Remove-EventLog -Source WUPEService"
+```
+
+And delte the .exe file.
+
 
 ## Issues
+
+No known issues.
