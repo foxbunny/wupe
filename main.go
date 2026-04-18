@@ -113,8 +113,9 @@ func (s *wupeService) Execute(args []string, r <-chan svc.ChangeRequest, changes
 	const accepted = svc.AcceptStop | svc.AcceptShutdown
 
 	changes <- svc.Status{State: svc.StartPending}
-
-
+	s.applyPause()
+	changes <- svc.Status{State: svc.Running, Accepts: accepted}
+	
 	ticker := time.NewTicker(24 * time.Hour)
 	defer ticker.Stop()
 
